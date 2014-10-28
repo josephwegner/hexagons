@@ -12,6 +12,10 @@ class @Tile
     cursorX = ((@location.x * 75) + @game.canvas.center().left) - 25
     cursorY = ((@location.y * yStepConstant * -1) + @game.canvas.center().top) + 25
 
+    @game.canvas.context.fillStyle = "rgba(#{@color[0]}, #{@color[1]}, #{@color[2]}, .75)"
+    @game.canvas.context.strokeStyle = "rgba(#{@color[0]}, #{@color[1]}, #{@color[2]}, 1)"
+    @game.canvas.context.lineWidth = 2
+
     # Set intial pen position
     @game.canvas.context.beginPath()
     @game.canvas.context.moveTo cursorX, cursorY
@@ -40,11 +44,6 @@ class @Tile
     @game.canvas.context.lineTo cursorX, cursorY
 
     @game.canvas.context.closePath()
-
-
-    @game.canvas.context.fillStyle = "rgba(#{@color[0]}, #{@color[1]}, #{@color[2]}, .75)"
-    @game.canvas.context.strokeStyle = "rgba(#{@color[0]}, #{@color[1]}, #{@color[2]}, 1)"
-    @game.canvas.context.lineWidth = 2
 
     @game.canvas.context.stroke()
     @game.canvas.context.fill()
